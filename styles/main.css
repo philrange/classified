@@ -1,0 +1,80 @@
+body {
+    font-family: "Roboto", sans-serif;
+    padding-top: 60px;
+}
+
+
+.initially-hidden {
+    display: none;
+}
+
+.container {
+    padding: 20px;
+}
+
+/* select deck */
+#select-deck-container {
+    width: 100%;
+}
+
+#select-deck {
+    width: 100%;
+}
+
+
+/* select number */
+#select-number-container {    
+}
+
+#select-number {
+    
+}
+
+#select-one {
+    
+}
+
+#select-two {
+    
+}
+
+
+/* cards */
+
+.card {
+    width: 18em;
+}
+
+
+
+
+
+/* table */
+
+  /*font-size: 18px;*/
+
+th, td {
+	padding: 8px !important;
+	padding-right: 12px;
+}
+
+td {
+	text-align: center;
+}
+
+th {
+  background-color: #4CAF50;
+  color: #fdfdfd;
+}
+
+tr {
+	background-color: #f8f8f8;
+}
+
+tr:nth-child(even) {
+	background-color: #f0f0f0;
+}
+
+tr:hover {
+	background-color: #dddddd;
+}
