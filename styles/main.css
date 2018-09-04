@@ -3,6 +3,49 @@ body {
     padding-top: 60px;
 }
 
+/* Background */
+.background-container {
+    padding: 0;
+}
+
+.top-background {
+    background: linear-gradient(170deg, rgba(59,232,222,0.8) 0%, rgba(59,232,222,0.8) 15%, rgba(18,100,200,0.8) 80%);
+
+    min-height: 1000px;
+    width: 100%;
+    position: absolute;
+    top: -250px;
+
+    z-index: -5;
+    transform: skewY(-14deg);
+}
+
+
+/*Top Menu*/
+
+header {
+    background: rgba(0, 0, 0, 0.5);
+    height: 40px;
+    color: white;
+}
+
+.menu-item, .menu-logo {
+    text-transform: uppercase;
+    line-height: 40px;
+    margin-left: 20px;
+}
+
+.menu-logo {
+    color: rgba(20, 200, 200, 0.8);
+}
+
+.menu-item a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+
 
 .initially-hidden {
     display: none;
