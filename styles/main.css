@@ -85,7 +85,7 @@ header {
 /* cards */
 
 .card {
-    width: 80vw;
+    max-width: 300px;
 }
 
 #cards-container {
