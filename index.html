@@ -39,11 +39,16 @@
 -->
             
                         <header>
-                <span class="menu-logo d-none d-sm-inline">menu</span> 
+                <span class="menu-logo">Classified Objective Helper</span> 
                 <span class="menu-divider"></span>  
-                <span class="menu-item"><a href="#testimonials">testimonials</a></span> 
-                <span class="menu-divider"></span>  
-                <span class="menu-item">stuff</span></header>
+                  <span class="menu-item initially-hidden" id="deck-menu-item">
+                    Deck: <span class="badge" id="deck"></span>
+                </span>
+
+                <span class="menu-item initially-hidden" id="number-of-objectives-menu-item">
+                    Objectives: <span class="badge badge-light" id="number-of-objectives"></span>
+                </span>
+                </header>
 
 
 
@@ -51,6 +56,7 @@
             <div class="container">
 
                 <div id='select-deck-container'>
+                Select deck
                     <div id="select-deck">
                         <button type="button" class="btn btn-success btn-lg btn-block" onclick="selectNormalDeck()">NORMAL</button>
                         <button type="button" class="btn btn-danger btn-lg btn-block" onclick="selectExtremeDeck()">EXTREME</button>
@@ -58,14 +64,18 @@
                 </div>
 
                 <div id='select-number-container' class="initially-hidden">
+                Select number of cards
                     <div id="select-number">
                         <button type="button" class="btn btn-success btn-lg btn-block" onclick="selectOne()">1</button>
                         <button type="button" class="btn btn-danger btn-lg btn-block" onclick="selectTwo()">2</button>
                     </div>
                 </div>
 
-
-
+<div id='select-card-container' class="initially-hidden">
+                   <span> SELECT card one</span>
+                </div>
+                
+                
                 <div>
                     <span id="debug"></span>
                 </div>   
@@ -78,11 +88,23 @@
 </div>
 -->
 
-                <div id="secureHVT" class="initially-hidden">
-
+                <div id="cards-container" class="initially-hidden">
+<div class="card-deck">
                     <div class="card">
-
                         <h5 class="card-header">Secure HVT</h5>
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted">Requirements: None</h6>
+                            <p class="card-text">The Secure HVT optional Classified Objective is accomplished 
+                                when at the end of the game the player has one of his troopers 
+                                (who is not in a Null state) inside the Zone of Control of the enemy 
+                                HVT and at the same time, the Zone of Control of his own HVT 
+                                is free of enemy troops (Not counting those in a Null state).</p>
+                        </div>
+                    </div>
+                    
+                     <div class="card">
+
+                        <h5 class="card-header">Secure HVT2</h5>
                         <div class="card-body">
                             <h6 class="card-subtitle mb-2 text-muted">Requirements: None</h6>
                             <p class="card-text">The Secure HVT optional Classified Objective is accomplished 
@@ -95,7 +117,13 @@
 
                     </div>
 
+             
+</div>
                 </div>
+                
+                
+                
+                
 
             </div>
 

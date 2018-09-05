@@ -1,6 +1,6 @@
 body {
     font-family: "Roboto", sans-serif;
-    padding-top: 60px;
+    /*padding-top: 60px;*/
 }
 
 /* Background */
@@ -85,10 +85,12 @@ header {
 /* cards */
 
 .card {
-    width: 18em;
+    width: 80vw;
 }
 
-
+#cards-container {
+	background: pink;
+}
 
 
 

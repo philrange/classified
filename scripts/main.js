@@ -23,7 +23,10 @@ function selectDeck() {
         $('#deck').addClass("badge-success");
     }
     
+       $('.menu-logo').addClass("d-none d-sm-inline");
+       $('#deck-menu-item').slideToggle();
     $('#select-deck-container').slideToggle("slow", goToSelectNumber());
+    
 }
 
 function goToSelectNumber() {
@@ -43,11 +46,15 @@ function selectTwo() {
 
 function selectNumber() {
     $('#number-of-objectives').html(numberOfCards);
+   
+    
+    $('#number-of-objectives-menu-item').slideToggle();
     $('#select-number-container').slideToggle("slow", goToSelectCard());
 }
 
 function goToSelectCard() {
     $('#select-card-container').slideToggle();
+    $('#cards-container').slideToggle();
     $('#secureHVT').slideToggle();
 }
 
