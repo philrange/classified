@@ -1,7 +1,7 @@
 numberOfCards = 2;
 useExtremeDeck = false;
-fullDeck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-remainingCardsInDeck = fullDeck;
+remainingCardsInDeck = [];
+remainingNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 
 
 function selectNormalDeck() {
@@ -49,7 +49,43 @@ function selectNumber() {
 
 
     $('#number-of-objectives-menu-item').toggle();
-    $('#select-number-container').slideToggle("slow", goToSelectCard());
+    $('#select-number-container').slideToggle("slow", goToDiceRollOrRandom());
+}
+
+function goToDiceRollOrRandom() {
+    
+    $.each(remainingCardsInDeck, function(i, card) {
+        
+        var cardName = (i + 1) + ":" + card.objective;
+        console.log(cardName);
+        console.log('<a class="dropdown-item" href="#">' + cardName + '</a>');
+        $('#drop-down1').append('<option>' + cardName + '</option>');
+        $('#drop-down2').append('<option>' + cardName + '</option>');
+
+    });
+
+    $('#dice-roll-or-random-container').slideToggle();
+}
+
+function show2selectedCards() {
+    var card1 = $('#drop-down1').val();
+    var card2 = $('#drop-down2').val();
+    console.log(card1);
+    console.log(card2);
+    
+}
+
+function show2randomCards() {
+    var card1 = remainingNumbers[Math.floor(Math.random()*remainingNumbers.length)];
+//    remainingNumbers.remove(card1);
+    remainingNumbers.splice( $.inArray(card1, remainingNumbers), 1 );
+    var card2 = remainingNumbers[Math.floor(Math.random()*remainingNumbers.length)];
+    console.log(card1);
+    console.log(card2);
+}
+
+function show2cards(card1, card2) {
+    
 }
 
 function goToSelectCard() {
@@ -76,14 +112,11 @@ function loadDeck() {
         },
         success: function (deck) { 
 
-            var cards = deck.cards;
-            $.each(deck.cards, function(i, item) {
-                console.log(i + 1);
-                console.log(item);
-            })  
-//            console.log(deckString);
-            //            console.log(deck);
-
+            remainingCardsInDeck = deck.cards;
+//            $.each(deck.cards, function(i, item) {
+//                console.log(i + 1);
+//                console.log(item);
+//            })  
 
         },
         error: function (argument) {

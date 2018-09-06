@@ -27,6 +27,7 @@ header {
     background: rgba(0, 0, 0, 0.5);
     height: 40px;
     color: white;
+    margin-top: 4px;
 }
 
 .menu-item, .menu-logo {

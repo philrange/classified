@@ -25,30 +25,30 @@
             </div>
 
             <!-- navbar -->
-<!--
-            <nav class="navbar fixed-top navbar-dark bg-dark">
-                <span class="navbar-brand mb-0 h1 d-none d-sm-block">Classified Objective Helper</span>
-                <button type="button" class="btn btn-primary">
-                    Deck: <span class="badge" id="deck"></span>
-                </button>
+            <!--
+<nav class="navbar fixed-top navbar-dark bg-dark">
+<span class="navbar-brand mb-0 h1 d-none d-sm-block">Classified Objective Helper</span>
+<button type="button" class="btn btn-primary">
+Deck: <span class="badge" id="deck"></span>
+</button>
 
-                <button type="button" class="btn btn-primary">
-                    Objectives: <span class="badge badge-light" id="number-of-objectives"></span>
-                </button>
-            </nav>
+<button type="button" class="btn btn-primary">
+Objectives: <span class="badge badge-light" id="number-of-objectives"></span>
+</button>
+</nav>
 -->
-            
-                        <header>
+
+            <header>
                 <span class="menu-logo">Classified Objective Helper</span> 
                 <span class="menu-divider"></span>  
-                  <span class="menu-item initially-hidden" id="deck-menu-item">
+                <span class="menu-item initially-hidden" id="deck-menu-item">
                     Deck: <span class="badge" id="deck"></span>
                 </span>
 
                 <span class="menu-item initially-hidden" id="number-of-objectives-menu-item">
                     Objectives: <span class="badge badge-light" id="number-of-objectives"></span>
                 </span>
-                </header>
+            </header>
 
 
 
@@ -56,7 +56,7 @@
             <div class="container">
 
                 <div id='select-deck-container'>
-                Select deck
+                    Select deck
                     <div id="select-deck">
                         <button type="button" class="btn btn-success btn-lg btn-block" onclick="selectNormalDeck()">NORMAL</button>
                         <button type="button" class="btn btn-danger btn-lg btn-block" onclick="selectExtremeDeck()">EXTREME</button>
@@ -64,23 +64,56 @@
                 </div>
 
                 <div id='select-number-container' class="initially-hidden">
-                Select number of cards
+                    Select number of cards
                     <div id="select-number">
                         <button type="button" class="btn btn-success btn-lg btn-block" onclick="selectOne()">1</button>
                         <button type="button" class="btn btn-danger btn-lg btn-block" onclick="selectTwo()">2</button>
                     </div>
                 </div>
 
-<div id='select-card-container' class="initially-hidden">
-                   <div><span>SELECT card</span></div>
-                   <div>drop down 1</div>
-                   <div>drop down 2</div>
-                   <div>or randomly select for me</div>
-                   <div>go - goes to thing showing 2 cards to select</div>
-                   <div>you select one, it goes into the container below, then you either go back to card select, or are finished</div>
+                <div id='dice-roll-or-random-container' class="initially-hidden">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-mb-2">
+                                <label for="drop-down1">Dice 1</label>
+                                <select class="form-control form-control-lg" id="drop-down1">
+                                </select>
+                            </div>
+                            <div class="form-group col-mb-2">
+                                <label for="drop-down2">Dice 2</label>
+                                <select class="form-control form-control-lg" id="drop-down2">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-mb-2">
+                                <button type="submit" class="btn btn-primary" onclick="show2selectedCards()">Use these cards</button>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-mb-2">
+                                <button type="submit" class="btn btn-primary" onclick="show2randomCards()">Randomly Select 2 cards</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div>drop down 1</div>
+                    <div>drop down 2</div>
+                    <div>or randomly select for me</div>
+                    <div>go - goes to thing showing 2 cards to select</div>
+                    <div>you select one, it goes into the container below, then you either go back to card select, or are finished</div>
                 </div>
-                
-                
+
+                <div id='select-card-container' class="initially-hidden">
+                    <div><span>SELECT card</span></div>
+                    <div>drop down 1</div>
+                    <div>drop down 2</div>
+                    <div>or randomly select for me</div>
+                    <div>go - goes to thing showing 2 cards to select</div>
+                    <div>you select one, it goes into the container below, then you either go back to card select, or are finished</div>
+                </div>
+
+
                 <div>
                     <span id="debug"></span>
                 </div>   
@@ -94,41 +127,41 @@
 -->
 
                 <div id="cards-container" class="initially-hidden">
-<div class="card-deck">
-                    <div class="card">
-                        <h5 class="card-header">Secure HVT</h5>
-                        <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-muted">Requirements: None</h6>
-                            <p class="card-text">The Secure HVT optional Classified Objective is accomplished 
-                                when at the end of the game the player has one of his troopers 
-                                (who is not in a Null state) inside the Zone of Control of the enemy 
-                                HVT and at the same time, the Zone of Control of his own HVT 
-                                is free of enemy troops (Not counting those in a Null state).</p>
-                        </div>
-                    </div>
-                    
-                     <div class="card">
-
-                        <h5 class="card-header">Secure HVT2</h5>
-                        <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-muted">Requirements: None</h6>
-                            <p class="card-text">The Secure HVT optional Classified Objective is accomplished 
-                                when at the end of the game the player has one of his troopers 
-                                (who is not in a Null state) inside the Zone of Control of the enemy 
-                                HVT and at the same time, the Zone of Control of his own HVT 
-                                is free of enemy troops (Not counting those in a Null state).</p>
-
+                    <div class="card-deck">
+                        <div class="card">
+                            <h5 class="card-header">Secure HVT</h5>
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-muted">Requirements: None</h6>
+                                <p class="card-text">The Secure HVT optional Classified Objective is accomplished 
+                                    when at the end of the game the player has one of his troopers 
+                                    (who is not in a Null state) inside the Zone of Control of the enemy 
+                                    HVT and at the same time, the Zone of Control of his own HVT 
+                                    is free of enemy troops (Not counting those in a Null state).</p>
+                            </div>
                         </div>
 
-                    </div>
+                        <div class="card">
 
-             
-</div>
+                            <h5 class="card-header">Secure HVT2</h5>
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-muted">Requirements: None</h6>
+                                <p class="card-text">The Secure HVT optional Classified Objective is accomplished 
+                                    when at the end of the game the player has one of his troopers 
+                                    (who is not in a Null state) inside the Zone of Control of the enemy 
+                                    HVT and at the same time, the Zone of Control of his own HVT 
+                                    is free of enemy troops (Not counting those in a Null state).</p>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
                 </div>
-                
-                
-                
-                
+
+
+
+
 
             </div>
 
