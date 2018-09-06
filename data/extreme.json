@@ -1,0 +1,20 @@
+{
+    "cards" : [
+        {
+            "objective" : "abc",
+            "requirements" : "None",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "def",
+            "requirements" : "Hacker",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "ghi",
+            "requirements" : "Engineer",
+            "text" : "blah blah blah"
+        }
+        
+    ]
+}
