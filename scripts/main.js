@@ -69,23 +69,44 @@ function goToDiceRollOrRandom() {
 
 function show2selectedCards() {
     var card1 = $('#drop-down1').val();
+    var card1number = card1.substring(0, card1.indexOf(":")) - 1;
     var card2 = $('#drop-down2').val();
-    console.log(card1);
-    console.log(card2);
-    
+        var card2number = card2.substring(0, card2.indexOf(":")) - 1;
+    console.log(card1number);
+    console.log(card2number);
+    show2cards(card1number, card2number);
 }
 
 function show2randomCards() {
     var card1 = remainingNumbers[Math.floor(Math.random()*remainingNumbers.length)];
 //    remainingNumbers.remove(card1);
-    remainingNumbers.splice( $.inArray(card1, remainingNumbers), 1 );
+   
+//remove the card just picked from the deck    remainingNumbers.splice( $.inArray(card1, remainingNumbers), 1 );
+    
     var card2 = remainingNumbers[Math.floor(Math.random()*remainingNumbers.length)];
     console.log(card1);
     console.log(card2);
+    show2cards(card1, card2);
 }
 
 function show2cards(card1, card2) {
-    
+
+var card1div = getCardDiv(card1);
+var card2div = getCardDiv(card2);
+console.log(card1div);
+
+  $('#select-card-container').append("(" + card1 + " " + card2 + ") ");
+
+    $('#select-card-container').append(card1div).append(card2div);
+    goToSelectCard();
+}
+
+function getCardDiv(card) {
+
+var card = remainingCardsInDeck[card];
+var html = '<div class="card"><h5 class="card-header">' + card.objective + '</h5><div class="card-body"><h6 class="card-subtitle mb-2 text-muted">REQUIREMENTS: ' + card.requirements + '</h6><p class="card-text">' + card.text + '</p></div></div>';
+
+return html;
 }
 
 function goToSelectCard() {
