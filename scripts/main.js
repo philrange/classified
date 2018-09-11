@@ -53,12 +53,11 @@ function selectNumber() {
 }
 
 function goToDiceRollOrRandom() {
-    
+
     $.each(remainingCardsInDeck, function(i, card) {
-        
+
         var cardName = (i + 1) + ":" + card.objective;
         console.log(cardName);
-        console.log('<a class="dropdown-item" href="#">' + cardName + '</a>');
         $('#drop-down1').append('<option>' + cardName + '</option>');
         $('#drop-down2').append('<option>' + cardName + '</option>');
 
@@ -71,48 +70,69 @@ function show2selectedCards() {
     var card1 = $('#drop-down1').val();
     var card1number = card1.substring(0, card1.indexOf(":")) - 1;
     var card2 = $('#drop-down2').val();
-        var card2number = card2.substring(0, card2.indexOf(":")) - 1;
-    console.log(card1number);
-    console.log(card2number);
+    var card2number = card2.substring(0, card2.indexOf(":")) - 1;
     show2cards(card1number, card2number);
 }
 
 function show2randomCards() {
     var card1 = remainingNumbers[Math.floor(Math.random()*remainingNumbers.length)];
-//    remainingNumbers.remove(card1);
-   
-//remove the card just picked from the deck    remainingNumbers.splice( $.inArray(card1, remainingNumbers), 1 );
-    
+
+    //remove the card just picked from the deck    
+    remainingNumbers.splice( $.inArray(card1, remainingNumbers), 1 );
+
     var card2 = remainingNumbers[Math.floor(Math.random()*remainingNumbers.length)];
-    console.log(card1);
-    console.log(card2);
     show2cards(card1, card2);
 }
 
 function show2cards(card1, card2) {
 
-var card1div = getCardDiv(card1);
-var card2div = getCardDiv(card2);
-console.log(card1div);
+    $('#dice-roll-or-random-container').slideToggle();
 
-  $('#select-card-container').append("(" + card1 + " " + card2 + ") ");
+    var card1div = getCardDiv(card1);
+    var card2div = getCardDiv(card2);
+
+    $('#select-card-container').append("(" + card1 + " " + card2 + ") ");
 
     $('#select-card-container').append(card1div).append(card2div);
     goToSelectCard();
 }
 
-function getCardDiv(card) {
+function getCardDiv(cardId) {
 
-var card = remainingCardsInDeck[card];
-var html = '<div class="card"><h5 class="card-header">' + card.objective + '</h5><div class="card-body"><h6 class="card-subtitle mb-2 text-muted">REQUIREMENTS: ' + card.requirements + '</h6><p class="card-text">' + card.text + '</p></div></div>';
+    var card = remainingCardsInDeck[cardId];
+    var html = '<div class="card"><h5 class="card-header">' + card.objective + '</h5><div class="card-body"><h6 class="card-subtitle mb-2 text-muted">REQUIREMENTS: ' + card.requirements + '</h6><p class="card-text">' + card.text + '</p><button type="button" class="btn btn-primary" onclick="selectCard(' + cardId + ')">Select this card</button></div></div>';
 
-return html;
+    return html;
 }
 
 function goToSelectCard() {
     $('#select-card-container').slideToggle();
     $('#cards-container').slideToggle();
-    $('#secureHVT').slideToggle();
+    //    $('#secureHVT').slideToggle();
+}
+
+function selectCard(cardId) {
+    console.log("Selected card " + cardId + " " + remainingCardsInDeck[cardId].objective);
+
+    console.log(remainingCardsInDeck);
+    console.log("removing " + cardId + " from deck");
+
+    console.log($.inArray(cardId, remainingCardsInDeck));
+    remainingCardsInDeck.splice( $.inArray(cardId, remainingCardsInDeck), 1 );
+
+    console.log(remainingCardsInDeck);
+
+    //add card to bottom display
+    console.log("todo - add " + cardId + " to bottom display");
+
+    $('#select-card-container').slideToggle();
+
+    numberOfCards--;
+
+    if (numberOfCards > 0) {
+
+        goToDiceRollOrRandom();
+    }
 }
 
 
@@ -134,10 +154,10 @@ function loadDeck() {
         success: function (deck) { 
 
             remainingCardsInDeck = deck.cards;
-//            $.each(deck.cards, function(i, item) {
-//                console.log(i + 1);
-//                console.log(item);
-//            })  
+            //            $.each(deck.cards, function(i, item) {
+            //                console.log(i + 1);
+            //                console.log(item);
+            //            })  
 
         },
         error: function (argument) {
@@ -152,6 +172,10 @@ function addHandlers() {
 
     //not sure if this'll be needed
 }
+
+
+
+
 
 function go() {
     $('#input-container').slideToggle("slow", setup());
