@@ -105,7 +105,17 @@ function getCardDiv(cardId) {
     return html;
 }
 
+function getCardDivWithoutSelectButton(cardId) {
+
+    var card = remainingCardsInDeck[cardId];
+    var html = '<div class="card"><h5 class="card-header">' + card.objective + '</h5><div class="card-body"><h6 class="card-subtitle mb-2 text-muted">REQUIREMENTS: ' + card.requirements + '</h6><p class="card-text">' + card.text + '</p></div></div>';
+
+    return html;
+}
+
 function goToSelectCard() {
+
+//todo - don't do this secind time around. can we just do show instead of toggle?
     $('#select-card-container').slideToggle();
     $('#cards-container').slideToggle();
     //    $('#secureHVT').slideToggle();
@@ -118,12 +128,15 @@ function selectCard(cardId) {
     console.log("removing " + cardId + " from deck");
 
     console.log($.inArray(cardId, remainingCardsInDeck));
-    remainingCardsInDeck.splice( $.inArray(cardId, remainingCardsInDeck), 1 );
+   
+   //todo - fix this splice thingy remainingCardsInDeck.splice( $.inArray(cardId, remainingCardsInDeck), 1 );
 
     console.log(remainingCardsInDeck);
 
     //add card to bottom display
     console.log("todo - add " + cardId + " to bottom display");
+    var cardDiv = getCardDiv(cardId);
+    $('#cards-container').append(cardDiv);
 
     $('#select-card-container').slideToggle();
 
@@ -131,6 +144,7 @@ function selectCard(cardId) {
 
     if (numberOfCards > 0) {
 
+//todo - clear out drop downs and card select div
         goToDiceRollOrRandom();
     }
 }
