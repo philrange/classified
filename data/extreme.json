@@ -1,9 +1,9 @@
 {
     "cards" : [
         {
-            "objective" : "abc",
-            "requirements" : "None",
-            "text" : "blah blah blah"
+            "objective" : "CAPTURE",
+            "requirements" : "Veteran Troop, Elite Troop, or Chain of Command",
+            "text" : "At the end of the game, a trooper in a non-Null State whose Troop Classification is Veteran or Elite Troop, or a trooper possessing the Chain of Command Special Skill, must be in base contact with an enemy trooper. The enemy must be in a Null state and be totally inside the enemy's Deployment Zone."
         },
         {
             "objective" : "def",
@@ -14,7 +14,91 @@
             "objective" : "ghi",
             "requirements" : "Engineer",
             "text" : "blah blah blah"
+        },
+        {
+            "objective" : "ghiq",
+            "requirements" : "Engineer",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "ghiw",
+            "requirements" : "Engineer",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "ghei",
+            "requirements" : "Engineer",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "ghie",
+            "requirements" : "Engineer",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "ghir",
+            "requirements" : "Engineer",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "deft",
+            "requirements" : "Hacker",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "ghyi",
+            "requirements" : "Engineer",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "ghiy",
+            "requirements" : "Engineer",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "ghui",
+            "requirements" : "Engineer",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "ghii",
+            "requirements" : "Engineer",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "ghio",
+            "requirements" : "Engineer",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "ghoi",
+            "requirements" : "Engineer",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "depf",
+            "requirements" : "Hacker",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "ghip",
+            "requirements" : "Engineer",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "ghpi",
+            "requirements" : "Engineer",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "ghsi",
+            "requirements" : "Engineer",
+            "text" : "blah blah blah"
+        },
+        {
+            "objective" : "ghia",
+            "requirements" : "Engineer",
+            "text" : "blah blah blah"
         }
-        
     ]
 }
