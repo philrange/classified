@@ -54,6 +54,10 @@ function selectNumber() {
 
 function goToDiceRollOrRandom() {
 
+// clear out drop downs
+  $('#drop-down1').
+
+//populate drop downs
     $.each(remainingCardsInDeck, function(i, card) {
 
         var cardName = (i + 1) + ":" + card.objective;
@@ -114,11 +118,8 @@ function getCardDivWithoutSelectButton(cardId) {
 }
 
 function goToSelectCard() {
-
-//todo - don't do this secind time around. can we just do show instead of toggle?
     $('#select-card-container').slideDown();
     $('#cards-container').slideDown();
-    //    $('#secureHVT').slideToggle();
 }
 
 function selectCard(cardId) {
