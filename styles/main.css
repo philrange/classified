@@ -90,7 +90,11 @@ header {
 }
 
 #cards-container {
-	background: pink;
+/*	background: pink;*/
+}
+
+#cards-container .card-deck {
+    /*padding: 10px;*/
 }
 
 

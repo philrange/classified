@@ -54,10 +54,14 @@ function selectNumber() {
 
 function goToDiceRollOrRandom() {
 
-// clear out drop downs
-  $('#drop-down1').
+    // clear out drop downs
+    $('#drop-down1').empty();
+    $('#drop-down2').empty();
 
-//populate drop downs
+    //clear out card select
+    $('#card-select').empty();
+
+    //populate drop downs
     $.each(remainingCardsInDeck, function(i, card) {
 
         var cardName = (i + 1) + ":" + card.objective;
@@ -97,7 +101,7 @@ function show2cards(card1, card2) {
 
     $('#select-card-container').append("(" + card1 + " " + card2 + ") ");
 
-    $('#select-card-container').append(card1div).append(card2div);
+    $('#card-select').append(card1div).append(card2div);
     goToSelectCard();
 }
 
@@ -129,14 +133,13 @@ function selectCard(cardId) {
     console.log("removing " + cardId + " from deck");
 
     console.log($.inArray(cardId, remainingCardsInDeck));
-   
-   //todo - fix this splice thingy remainingCardsInDeck.splice( $.inArray(cardId, remainingCardsInDeck), 1 );
+
+    //todo - fix this splice thingy remainingCardsInDeck.splice( $.inArray(cardId, remainingCardsInDeck), 1 );
 
     console.log(remainingCardsInDeck);
 
     //add card to bottom display
-    console.log("todo - add " + cardId + " to bottom display");
-    var cardDiv = getCardDiv(cardId);
+    var cardDiv = getCardDivWithoutSelectButton(cardId);
     $('#cards-container').append(cardDiv);
 
     $('#select-card-container').slideToggle();
@@ -145,7 +148,6 @@ function selectCard(cardId) {
 
     if (numberOfCards > 0) {
 
-//todo - clear out drop downs and card select div
         goToDiceRollOrRandom();
     }
 }
