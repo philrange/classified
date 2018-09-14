@@ -11,9 +11,9 @@
             "text" : "The Hacker must spend one Short Skill of the Order and succeed at one WIP-3 Roll against any enemy model inside his Zone of Control. The target may declare a Reset ARO no matter which Type of Troop it is (LI, MI, HI…) and even if the Data Scan is performed outside his LOF."
         },
         {
-            "objective" : "ghi",
-            "requirements" : "Engineer",
-            "text" : "blah blah blah"
+            "objective" : "EXPERIMENTAL DRUG",
+            "requirements" : "Doctor or Paramedic.",
+            "text" : "A Doctor or Paramedic in base contact with the enemy HVT model must spend a Short Skill and succeed at a WIP+3 Roll. The player can use troops possessing G: Servant to accomplish this Objective."
         },
         {
             "objective" : "ghiq",
