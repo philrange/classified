@@ -13,37 +13,37 @@
         {
             "objective" : "EXPERIMENTAL DRUG",
             "requirements" : "Doctor or Paramedic.",
-            "text" : "A Doctor or Paramedic in base contact with the enemy HVT model must spend a Short Skill and succeed at a WIP+3 Roll. The player can use troops possessing G: Servant to accomplish this Objective."
+            "text" : "To get an allied trooper recovered from Unconscious to Normal state by using the Doctor Special Skill, or by using a MediKit/Medjector."
         },
         {
-            "objective" : "ghiq",
-            "requirements" : "Engineer",
-            "text" : "blah blah blah"
+            "objective" : "EXTREME PREDJUDICE",
+            "requirements" : "--",
+            "text" : "To perform a Coup de Grâce against an Unconscious or Spawn-Embryo enemy model."
         },
         {
-            "objective" : "ghiw",
-            "requirements" : "Engineer",
-            "text" : "blah blah blah"
+            "objective" : "FOLLOW-UP",
+            "requirements" : "Medium Infantry or Heavy Infantry",
+            "text" : "A trooper whose Unit Type is Medium or Heavy Infantry, with the enemy HVT model inside his Zone of Control, must spend a Short Skill and succeed at a WIP Roll. Bonus: If the trooper has LoF to the enemy HVT model the WIP Roll gets a +3 MOD."
         },
         {
-            "objective" : "ghei",
-            "requirements" : "Engineer",
-            "text" : "blah blah blah"
+            "objective" : "HVT: DESIGNATION",
+            "requirements" : "Forward Observer or Spotlight Hacking Program",
+            "text" : "The player must succeed at two Forward Observer Rolls or two Spotlight Hacking Program Rolls against the enemy HVT model. The player is authorized to perform this type of Attack against the HVT model."
         },
         {
-            "objective" : "ghie",
-            "requirements" : "Engineer",
-            "text" : "blah blah blah"
-        },
-        {
-            "objective" : "ghir",
-            "requirements" : "Engineer",
-            "text" : "blah blah blah"
-        },
-        {
-            "objective" : "deft",
+            "objective" : "HVT: ESPIONAGE",
             "requirements" : "Hacker",
-            "text" : "blah blah blah"
+            "text" : "A Hacker with the enemy HVT model inside his Zone of Control must spend a Short Skill and succeed at a WIP -3 Roll."
+        },
+        {
+            "objective" : "HVT: IDENTITY CHECK",
+            "requirements" : "Biometric Visor, Multispectral Visor or Sensor.",
+            "text" : "A trooper with the Biometric Visor or the Multispectral Visor piece of Equipment with the enemy HVT model inside of his Zone of Control and LoF, or a trooper with the Sensor Special Skill with the enemy HVT model inside his Sensor Area, must spend a Short Skill and succeed at a WIP Roll."
+        },
+        {
+            "objective" : "HVT: INOCULATION",
+            "requirements" : "Doctor or Paramedic",
+            "text" : "bla"
         },
         {
             "objective" : "ghyi",
