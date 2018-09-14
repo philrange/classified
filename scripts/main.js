@@ -67,7 +67,7 @@ function goToDiceRollOrRandom() {
         var cardName = (i + 1) + ":" + card.objective;
         console.log(cardName);
         $('#drop-down1').append('<option>' + cardName + '</option>');
-        $('#drop-down2').append('<option>' + cardName + '</option>');
+        $('#drop-down2').append('<option' + (carded  === 1 ? ' selected ' : '') + '>' + cardName + '</option>');
 
     });
 
@@ -135,12 +135,14 @@ function selectCard(cardId) {
     console.log($.inArray(cardId, remainingCardsInDeck));
 
     //todo - fix this splice thingy remainingCardsInDeck.splice( $.inArray(cardId, remainingCardsInDeck), 1 );
+    
+ //   remainingCardsInDeck.[cardId].used = "true";
 
     console.log(remainingCardsInDeck);
 
     //add card to bottom display
     var cardDiv = getCardDivWithoutSelectButton(cardId);
-    $('#cards-container').append(cardDiv);
+    $('#cards-container').prepend(cardDiv);
 
     $('#select-card-container').slideToggle();
 
