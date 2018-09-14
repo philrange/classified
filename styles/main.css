@@ -91,10 +91,12 @@ header {
 
 #cards-container {
 /*	background: pink;*/
+    margin-top: 20px;
+    padding-top: 10px;
 }
 
-#cards-container .card-deck {
-    /*padding: 10px;*/
+#cards-container .card-deck , #select-card-container .card-deck, #select-deck, #select-number {
+    margin-top: 10px;
 }
 
 

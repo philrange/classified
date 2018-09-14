@@ -67,7 +67,7 @@ var count = 1;
 
 if ( card.used != "true" ) {
 
-        var cardName = (i + 1) + ":" + card.objective;
+        var cardName = (i + 1) + " : " + card.objective;
         //console.log(cardName);
         $('#drop-down1').append('<option>' + cardName + '</option>');
         $('#drop-down2').append('<option' + (count === 2 ? ' selected ' : '') + '>' + cardName + '</option>');
@@ -112,7 +112,7 @@ function show2cards(card1, card2) {
 function getCardDiv(cardId) {
 
     var card = remainingCardsInDeck[cardId];
-    var html = '<div class="card"><h5 class="card-header">' + card.objective + '</h5><div class="card-body"><h6 class="card-subtitle mb-2 text-muted">REQUIREMENTS: ' + card.requirements + '</h6><p class="card-text">' + card.text + '</p><button type="button" class="btn btn-primary" onclick="selectCard(' + cardId + ')">Select this card</button></div></div>';
+    var html = '<div class="card"><h5 class="card-header">' + card.objective + '</h5><div class="card-body"><h6 class="card-subtitle mb-2 text-muted">REQUIREMENTS: ' + card.requirements + '</h6><p class="card-text">' + card.text + '</p></div><div class="card-footer"><button type="button" class="btn btn-primary" onclick="selectCard(' + cardId + ')">Select this card</button></div></div>';
 
     return html;
 }
