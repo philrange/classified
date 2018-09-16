@@ -87,15 +87,16 @@ header {
 
 .card {
     max-width: 300px;
+    min-width: 300px;
 }
 
-#cards-container {
+#cards-container, #cards-container-hc {
 /*	background: pink;*/
     margin-top: 20px;
     padding-top: 10px;
 }
 
-#cards-container .card-deck , #select-card-container .card-deck, #select-deck, #select-number {
+#cards-container .card-deck, #cards-container-hc .card-deck , #select-card-container .card-deck, #select-deck, #select-number {
     margin-top: 10px;
 }
 
