@@ -2,8 +2,50 @@ numberOfCards = 2;
 communalCards = 0;
 useExtremeDeck = false;
 remainingCardsInDeck = [];
-remainingNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+remainingNumbers = [];
 
+
+function loadDecks() {
+
+normalDeck = normal.cards;
+extremeDeck = extreme.cards;
+
+resetRemainingNumbers();
+}
+
+function resetRemainingNumbers() {
+remainingNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+}
+
+function restart() {
+ //$("#debug").append("test");
+ 
+//hide stuff
+$('.initially-hidden').hide();
+
+//clear data
+resetRemainingNumbers();
+
+  $('#card-select').empty();
+    $('#my-objectives-deck').empty();
+  $('#communal-objectives-deck').empty();
+  
+  $.each(normalDeck, function (i, card) {
+  		card.used = "false";
+  });
+  
+    $.each(extremeDeck, function (i, card) {
+  		card.used = "false";
+  });
+ 
+  
+//show logo
+$('.menu-logo').removeClass("d-none d-sm-inline");
+
+//show initial page
+$('#select-deck-container').show();
+
+}
 
 function selectNormalDeck() {
     useExtremeDeck = false;
@@ -19,19 +61,30 @@ function selectDeck() {
     if (useExtremeDeck) {
         $('#deck').html("Extreme");
         $('#deck').addClass("badge-danger");
+        remainingCardsInDeck = extremeDeck;
+        
+   // remainingCardsInDeck = extremeDeck.map(card => Object.assign({}, card, { "used": "false" }));
     } else {
         $('#deck').html("Normal");
         $('#deck').addClass("badge-success");
+        remainingCardsInDeck = normalDeck;
     }
+
+
+//$("#debug").append(remainingNumbers.toString());
+//$("#debug").append(remainingCardsInDeck.toString());
+//$("#debug").append(JSON.stringify(normalDeck));
 
     $('.menu-logo').addClass("d-none d-sm-inline");
     $('#deck-menu-item').toggle();
+    $('#restart-menu-item').toggle();
+    
     $('#select-deck-container').slideToggle("slow", goToSelectNumber());
 }
 
 function goToSelectNumber() {
     $('#select-number-container').slideToggle();
-    loadDeck();
+    //loadDeck();
 }
 
 
@@ -191,8 +244,23 @@ function getCardDivWithoutSelectButton(cardId) {
     return html;
 }
 
+function getSecureHvtCardDiv() {
+
+   
+    var html = '<div class="card text-white bg-dark mb-3"><h5 class="card-header">' + securehvt.objective + '</h5><div class="card-body"><h6 class="card-subtitle mb-2 text-muted">REQUIREMENTS: ' + securehvt.requirements + '</h6><p class="card-text">' + securehvt.text + '</p></div></div>';
+
+    return html;
+}
+
+
 function goToSelectCard() {
     $('#select-card-container').slideDown();
+    
+    // add secure HVT objective
+    var cardDiv = getSecureHvtCardDiv();
+    $('#debug').append(cardDiv);
+    $('#my-objectives-deck').append(cardDiv);
+    
     $('#cards-container').slideDown();
 }
 
@@ -225,36 +293,4 @@ function selectCard(cardId, communal) {
 
         goToDiceRollOrRandom();
     }
-}
-
-
-function loadDeck() {
-    var deckName = useExtremeDeck ? "extreme" : "normal";
-
-    $.ajax({
-        type: "GET",
-        crossDomain: true,
-        dataType : "json",
-        cache: false,
-        url: "data/" + deckName + ".json", 
-        beforeSend: function(xhr){
-            if (xhr.overrideMimeType)
-            {
-                xhr.overrideMimeType("application/json");
-            }
-        },
-        success: function (deck) { 
-
-            remainingCardsInDeck = deck.cards;
-            //            $.each(deck.cards, function(i, item) {
-            //                console.log(i + 1);
-            //                console.log(item);
-            //            })  
-
-        },
-        error: function (argument) {
-            // console.log(argument);
-            $("#debug").append("Error loading file for " + deckName + "<br>");
-        }  
-    }); 
 }

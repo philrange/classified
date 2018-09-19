@@ -1,0 +1,6 @@
+var securehvt = {
+        
+            "objective" : "CAPTURE",
+            "requirements" : "Veteran Troop, Elite Troop, or Chain of Command",
+            "text" : "At the end of the game, a trooper in a non-Null State whose Troop Classification is Veteran or Elite Troop, or a trooper possessing the Chain of Command Special Skill, must be in base contact with an enemy trooper. The enemy must be in a Null state and be totally inside the enemy's half of the game table."
+        }

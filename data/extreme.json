@@ -1,4 +1,4 @@
-{
+var extreme = {
     "cards" : [
         {
             "objective" : "CAPTURE",

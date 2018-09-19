@@ -11,12 +11,16 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+   <script type="text/javascript" src="data/normal.json"></script>
+      <script type="text/javascript" src="data/extreme.json"></script>
+        <script type="text/javascript" src="data/securehvt"></script>
+   
         <script src="scripts/main.js"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
     </head>
 
-    <body>
+    <body onLoad="loadDecks()">
 
 
         <div class="background-container">
@@ -47,6 +51,11 @@ Objectives: <span class="badge badge-light" id="number-of-objectives"></span>
             <span class="menu-item initially-hidden" id="number-of-objectives-menu-item">
                 Objectives: <span class="badge badge-light" id="number-of-objectives"></span>
             </span>
+            
+            <span class="menu-item initially-hidden" id="restart-menu-item">
+           <span onClick="restart()"><span  class="glyphicon glyphicon-refresh"></span>R <span class="d-none d-sm-inline">Restart</span></span>
+            </span>
+            
         </header>
 
 
@@ -166,7 +175,7 @@ Objectives: <span class="badge badge-light" id="number-of-objectives"></span>
 
                 <div><span>My Objectives</span></div>
                 <div class="card-deck" id="my-objectives-deck">
-                    <div class="card text-white bg-dark mb-3">
+                   <div class="card text-white bg-dark mb-3">
                         <h5 class="card-header">Secure HVT</h5>
                         <div class="card-body">
                             <h6 class="card-subtitle mb-2 text-muted">Requirements: None</h6>
@@ -176,8 +185,8 @@ Objectives: <span class="badge badge-light" id="number-of-objectives"></span>
                                 HVT and at the same time, the Zone of Control of his own HVT 
                                 is free of enemy troops (Not counting those in a Null state).</p>
                         </div>
-                    </div>
-                </div>
+                    </div> 
+                </div>           
             </div>
         </div>
 
