@@ -11,10 +11,10 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-   <script type="text/javascript" src="data/normal.json"></script>
-      <script type="text/javascript" src="data/extreme.json"></script>
-        <script type="text/javascript" src="data/securehvt"></script>
-   
+        <script type="text/javascript" src="data/normal.json"></script>
+        <script type="text/javascript" src="data/extreme.json"></script>
+        <script type="text/javascript" src="data/securehvt.json"></script>
+
         <script src="scripts/main.js"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
@@ -27,20 +27,6 @@
             <div class="top-background"></div>
         </div>
 
-        <!-- navbar -->
-        <!--
-<nav class="navbar fixed-top navbar-dark bg-dark">
-<span class="navbar-brand mb-0 h1 d-none d-sm-block">Classified Objective Helper</span>
-<button type="button" class="btn btn-primary">
-Deck: <span class="badge" id="deck"></span>
-</button>
-
-<button type="button" class="btn btn-primary">
-Objectives: <span class="badge badge-light" id="number-of-objectives"></span>
-</button>
-</nav>
--->
-
         <header>
             <span class="menu-logo">Classified Objective Helper</span> 
             <span class="menu-divider"></span>  
@@ -51,150 +37,157 @@ Objectives: <span class="badge badge-light" id="number-of-objectives"></span>
             <span class="menu-item initially-hidden" id="number-of-objectives-menu-item">
                 Objectives: <span class="badge badge-light" id="number-of-objectives"></span>
             </span>
-            
+
             <span class="menu-item initially-hidden" id="restart-menu-item">
-           <span onClick="restart()"><span  class="glyphicon glyphicon-refresh"></span>R <span class="d-none d-sm-inline">Restart</span></span>
+                <button type="button" class="btn btn-default btn-sm" onClick="restart()">
+                    <span class="glyphicon glyphicon-refresh"></span>
+                    <span class="d-none d-sm-inline">RESTART</span>
+                </button>
+
+                </a>
             </span>
-            
+
         </header>
 
 
 
-        <!-- main page -->
-        <div class="container">
+    <!-- main page -->
+    <div class="container">
 
-            <div id='select-deck-container'>
-                Select deck
-                <div id="select-deck">
-                    <button type="button" class="btn btn-success btn-lg btn-block" onclick="selectNormalDeck()">NORMAL</button>
-                    <button type="button" class="btn btn-danger btn-lg btn-block" onclick="selectExtremeDeck()">EXTREME</button>
+        <div id='select-deck-container'>
+            Select deck
+            <div id="select-deck">
+                <button type="button" class="btn btn-success btn-lg btn-block" onclick="selectNormalDeck()">NORMAL</button>
+                <button type="button" class="btn btn-danger btn-lg btn-block" onclick="selectExtremeDeck()">EXTREME</button>
+            </div>
+        </div>
+
+        <div id='select-number-container' class="initially-hidden">
+            Select number of cards
+            <div id="select-number">
+                <button type="button" class="btn btn-success btn-lg btn-block" onclick="selectOne()">1</button>
+                <button type="button" class="btn btn-danger btn-lg btn-block" onclick="selectTwo()">2</button>
+                <button type="button" class="btn btn-warning btn-lg btn-block" onclick="selectHighlyClassified()">HIGHLY CLASSIFIED</button>
+            </div>
+        </div>
+
+        <div id='dice-roll-or-random-container' class="initially-hidden">
+            Select your objectives
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-mb-2">
+                        <label for="drop-down1">Dice 1</label>
+                        <select class="form-control form-control-lg" id="drop-down1">
+                        </select>
+                    </div>
+                    <div class="form-group col-mb-2">
+                        <label for="drop-down2">Dice 2</label>
+                        <select class="form-control form-control-lg" id="drop-down2">
+                        </select>
+                    </div>
                 </div>
-            </div>
-
-            <div id='select-number-container' class="initially-hidden">
-                Select number of cards
-                <div id="select-number">
-                    <button type="button" class="btn btn-success btn-lg btn-block" onclick="selectOne()">1</button>
-                    <button type="button" class="btn btn-danger btn-lg btn-block" onclick="selectTwo()">2</button>
-                    <button type="button" class="btn btn-warning btn-lg btn-block" onclick="selectHighlyClassified()">HIGHLY CLASSIFIED</button>
+                <div class="form-row">
+                    <div class="form-group col-mb-2">
+                        <button type="button" class="btn btn-primary" onclick="show2selectedCards()">Use these cards</button>
+                    </div>
                 </div>
-            </div>
-
-            <div id='dice-roll-or-random-container' class="initially-hidden">
-                Select your objectives
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-mb-2">
-                            <label for="drop-down1">Dice 1</label>
-                            <select class="form-control form-control-lg" id="drop-down1">
-                            </select>
-                        </div>
-                        <div class="form-group col-mb-2">
-                            <label for="drop-down2">Dice 2</label>
-                            <select class="form-control form-control-lg" id="drop-down2">
-                            </select>
-                        </div>
+                <div class="form-row">
+                    <div class="form-group col-mb-2">
+                        <button type="button" class="btn btn-primary" onclick="show2randomCards()">Randomly Select 2 cards</button>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-mb-2">
-                            <button type="button" class="btn btn-primary" onclick="show2selectedCards()">Use these cards</button>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-mb-2">
-                            <button type="button" class="btn btn-primary" onclick="show2randomCards()">Randomly Select 2 cards</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <div id='dice-roll-or-random-container-hc' class="initially-hidden">
-                Select communal objectives
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-mb-2">
-                            <label for="hc-drop-down1">Dice 1</label>
-                            <select class="form-control form-control-lg" id="hc-drop-down1">
-                            </select>
-                        </div>
-                        <div class="form-group col-mb-2">
-                            <label for="hc-drop-down2">Dice 2</label>
-                            <select class="form-control form-control-lg" id="hc-drop-down2">
-                            </select>
-                        </div>
-                        <div class="form-group col-mb-2">
-                            <label for="hc-drop-down3">Dice 3</label>
-                            <select class="form-control form-control-lg" id="hc-drop-down3">
-                            </select>
-                        </div>
-                        <div class="form-group col-mb-2">
-                            <label for="hc-drop-down4">Dice 4</label>
-                            <select class="form-control form-control-lg" id="hc-drop-down4">
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-mb-2">
-                            <button type="button" class="btn btn-primary" onclick="use4selectedCards()">Use these cards</button>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-mb-2">
-                            <button type="button" class="btn btn-primary" onclick="use4randomCards()">Randomly Select 4 cards</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <div id='select-card-container' class="container-fluid initially-hidden">
-                <div><span>Select card</span></div>
-
-                <div class="card-deck" id="card-select">
-
-
                 </div>
+            </form>
+        </div>
 
-
-            </div>
-
-
-            <div>
-                <span id="debug"></span>
-            </div>   
-
-
-            <div id="cards-container-hc" class="container-fluid initially-hidden">
-
-                <div><span>Communal Objectives</span></div>
-                <div class="card-deck" id="communal-objectives-deck">
-
+        <div id='dice-roll-or-random-container-hc' class="initially-hidden">
+            Select communal objectives
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-mb-2">
+                        <label for="hc-drop-down1">Dice 1</label>
+                        <select class="form-control form-control-lg" id="hc-drop-down1">
+                        </select>
+                    </div>
+                    <div class="form-group col-mb-2">
+                        <label for="hc-drop-down2">Dice 2</label>
+                        <select class="form-control form-control-lg" id="hc-drop-down2">
+                        </select>
+                    </div>
+                    <div class="form-group col-mb-2">
+                        <label for="hc-drop-down3">Dice 3</label>
+                        <select class="form-control form-control-lg" id="hc-drop-down3">
+                        </select>
+                    </div>
+                    <div class="form-group col-mb-2">
+                        <label for="hc-drop-down4">Dice 4</label>
+                        <select class="form-control form-control-lg" id="hc-drop-down4">
+                        </select>
+                    </div>
                 </div>
-            </div>
+                <div class="form-row">
+                    <div class="form-group col-mb-2">
+                        <button type="button" class="btn btn-primary" onclick="use4selectedCards()">Use these cards</button>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-mb-2">
+                        <button type="button" class="btn btn-primary" onclick="use4randomCards()">Randomly Select 4 cards</button>
+                    </div>
+                </div>
+            </form>
+        </div>
 
-            <div id="cards-container" class="container-fluid initially-hidden">
+        <div id='select-card-container' class="container-fluid initially-hidden">
+            <div><span>Select card</span></div>
 
-                <div><span>My Objectives</span></div>
-                <div class="card-deck" id="my-objectives-deck">
-                   <div class="card text-white bg-dark mb-3">
-                        <h5 class="card-header">Secure HVT</h5>
-                        <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-muted">Requirements: None</h6>
-                            <p class="card-text">The Secure HVT optional Classified Objective is accomplished 
-                                when at the end of the game the player has one of his troopers 
-                                (who is not in a Null state) inside the Zone of Control of the enemy 
-                                HVT and at the same time, the Zone of Control of his own HVT 
-                                is free of enemy troops (Not counting those in a Null state).</p>
-                        </div>
-                    </div> 
-                </div>           
+            <div class="card-deck" id="card-select">
+
             </div>
         </div>
 
 
+        <div>
+            <span id="debug"></span>
+        </div>   
 
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+        <div id="cards-container-hc" class="container-fluid initially-hidden">
+
+            <div><span>Communal Objectives</span></div>
+            <div class="card-deck" id="communal-objectives-deck">
+
+            </div>
+        </div>
+
+        <div id="cards-container" class="container-fluid initially-hidden">
+
+            <div><span>My Objectives</span></div>
+            <div class="card-deck" id="my-objectives-deck">
+                <!--
+<div class="card text-white bg-dark mb-3">
+<h5 class="card-header">Secure HVT</h5>
+<div class="card-body">
+<h6 class="card-subtitle mb-2 text-muted">Requirements: None</h6>
+<p class="card-text">The Secure HVT optional Classified Objective is accomplished 
+when at the end of the game the player has one of his troopers 
+(who is not in a Null state) inside the Zone of Control of the enemy 
+HVT and at the same time, the Zone of Control of his own HVT 
+is free of enemy troops (Not counting those in a Null state).</p>
+</div>
+</div> 
+-->
+
+            </div>           
+        </div>
+
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
     </body>
 </html>

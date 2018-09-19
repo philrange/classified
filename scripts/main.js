@@ -7,44 +7,52 @@ remainingNumbers = [];
 
 function loadDecks() {
 
-normalDeck = normal.cards;
-extremeDeck = extreme.cards;
+    normalDeck = normal.cards;
+    extremeDeck = extreme.cards;
 
-resetRemainingNumbers();
+    resetRemainingNumbers();
+    
+    addSecureHvtObjective();
 }
 
 function resetRemainingNumbers() {
-remainingNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+    remainingNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
 }
 
 function restart() {
- //$("#debug").append("test");
- 
-//hide stuff
-$('.initially-hidden').hide();
+    //$("#debug").append("test");
 
-//clear data
-resetRemainingNumbers();
+    //hide stuff
+    $('.initially-hidden').hide();
 
-  $('#card-select').empty();
+    //clear data
+    resetRemainingNumbers();
+
+    $('#card-select').empty();
     $('#my-objectives-deck').empty();
-  $('#communal-objectives-deck').empty();
-  
-  $.each(normalDeck, function (i, card) {
-  		card.used = "false";
-  });
-  
+    addSecureHvtObjective();
+
+    $('#communal-objectives-deck').empty();
+
+    $.each(normalDeck, function (i, card) {
+        card.used = "false";
+    });
+
     $.each(extremeDeck, function (i, card) {
-  		card.used = "false";
-  });
- 
-  
-//show logo
-$('.menu-logo').removeClass("d-none d-sm-inline");
+        card.used = "false";
+    });
 
-//show initial page
-$('#select-deck-container').show();
 
+    //show logo
+    $('.menu-logo').removeClass("d-none d-sm-inline");
+
+    //show initial page
+    $('#select-deck-container').show();
+}
+
+function addSecureHvtObjective() {
+    var cardDiv = getSecureHvtCardDiv();
+    $('#my-objectives-deck').append(cardDiv);
 }
 
 function selectNormalDeck() {
@@ -62,8 +70,8 @@ function selectDeck() {
         $('#deck').html("Extreme");
         $('#deck').addClass("badge-danger");
         remainingCardsInDeck = extremeDeck;
-        
-   // remainingCardsInDeck = extremeDeck.map(card => Object.assign({}, card, { "used": "false" }));
+
+        // remainingCardsInDeck = extremeDeck.map(card => Object.assign({}, card, { "used": "false" }));
     } else {
         $('#deck').html("Normal");
         $('#deck').addClass("badge-success");
@@ -71,14 +79,14 @@ function selectDeck() {
     }
 
 
-//$("#debug").append(remainingNumbers.toString());
-//$("#debug").append(remainingCardsInDeck.toString());
-//$("#debug").append(JSON.stringify(normalDeck));
+    //$("#debug").append(remainingNumbers.toString());
+    //$("#debug").append(remainingCardsInDeck.toString());
+    //$("#debug").append(JSON.stringify(normalDeck));
 
     $('.menu-logo').addClass("d-none d-sm-inline");
     $('#deck-menu-item').toggle();
     $('#restart-menu-item').toggle();
-    
+
     $('#select-deck-container').slideToggle("slow", goToSelectNumber());
 }
 
@@ -104,14 +112,14 @@ function selectHighlyClassified() {
 
     $('#number-of-objectives').html('<span class="d-none d-sm-inline">HIGHLY CLASSIFIED</span><span class="d-sm-none">HC</span>');
     $('#number-of-objectives-menu-item').toggle();
-    
+
     $('#select-number-container').slideToggle("slow", goToDiceRollOrRandomHighlyClassified());
 }
 
 function selectNumber() {
     $('#number-of-objectives').html(numberOfCards);
     $('#number-of-objectives-menu-item').toggle();
-    
+
     $('#select-number-container').slideToggle("slow", goToDiceRollOrRandom());
 }
 
@@ -246,7 +254,6 @@ function getCardDivWithoutSelectButton(cardId) {
 
 function getSecureHvtCardDiv() {
 
-   
     var html = '<div class="card text-white bg-dark mb-3"><h5 class="card-header">' + securehvt.objective + '</h5><div class="card-body"><h6 class="card-subtitle mb-2 text-muted">REQUIREMENTS: ' + securehvt.requirements + '</h6><p class="card-text">' + securehvt.text + '</p></div></div>';
 
     return html;
@@ -255,12 +262,7 @@ function getSecureHvtCardDiv() {
 
 function goToSelectCard() {
     $('#select-card-container').slideDown();
-    
-    // add secure HVT objective
-    var cardDiv = getSecureHvtCardDiv();
-    $('#debug').append(cardDiv);
-    $('#my-objectives-deck').append(cardDiv);
-    
+
     $('#cards-container').slideDown();
 }
 

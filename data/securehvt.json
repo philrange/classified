@@ -1,6 +1,6 @@
 var securehvt = {
         
-            "objective" : "CAPTURE",
-            "requirements" : "Veteran Troop, Elite Troop, or Chain of Command",
-            "text" : "At the end of the game, a trooper in a non-Null State whose Troop Classification is Veteran or Elite Troop, or a trooper possessing the Chain of Command Special Skill, must be in base contact with an enemy trooper. The enemy must be in a Null state and be totally inside the enemy's half of the game table."
+            "objective" : "SECURE HVT",
+            "requirements" : "None",
+            "text" : "The Secure HVT optional Classified Objective is accomplished when at the end of the game the player has one of his troopers (who is not in a Null state) inside the Zone of Control of the enemy HVT and at the same time, the Zone of Control of his own HVT is free of enemy troops (Not counting those in a Null state)."
         }
