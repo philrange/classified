@@ -42,6 +42,7 @@ function restart() {
         card.used = "false";
     });
 
+ $('#timestamp').empty();
 
     //show logo
     $('.menu-logo').removeClass("d-none d-sm-inline");
@@ -294,5 +295,12 @@ function selectCard(cardId, communal) {
     if (numberOfCards > 0 && communalCards === 0) {
 
         goToDiceRollOrRandom();
+    } else {
+    	 $('#timestamp-container').show();
+    	 
+    	 var dt = new Date();
+var timestamp = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+    	 
+    	 $('#timestamp').append("Objectives selected at " + timestamp);
     }
 }
