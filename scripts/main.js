@@ -7,6 +7,8 @@ remainingNumbers = [];
 
 function loadDecks() {
 
+//$("#debug").append(timestamp());
+
     normalDeck = normal.cards;
     extremeDeck = extreme.cards;
 
@@ -297,10 +299,16 @@ function selectCard(cardId, communal) {
         goToDiceRollOrRandom();
     } else {
     	 $('#timestamp-container').show();
-    	 
-    	 var dt = new Date();
-var timestamp = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
-    	 
-    	 $('#timestamp').append("Objectives selected at " + timestamp);
+    	 $('#timestamp').append("Objectives selected at " + timestamp());
     }
+}
+
+function timestamp() {
+	 var dt = new Date();
+var timestamp = padZeros(dt.getHours()) + ":" + padZeros(dt.getMinutes()) + ":" + padZeros(dt.getSeconds());
+    	 return timestamp;
+}
+
+function padZeros(number) {
+return ('0' + number).slice(-2);
 }
