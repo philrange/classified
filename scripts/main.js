@@ -109,6 +109,11 @@ function selectTwo() {
     selectNumber();
 }
 
+function selectThree() {
+    numberOfCards = 3;
+    selectNumber();
+}
+
 function selectHighlyClassified() {
     numberOfCards = 1;
     communalCards = 4;
