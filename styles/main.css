@@ -89,6 +89,19 @@ header {
     min-width: 300px;
 }
 
+.card-header {
+	
+}
+
+.infotech {
+	float: right;
+}
+
+.icon {
+	float: right;
+	margin-right : 6px;
+}
+
 #cards-container, #cards-container-hc {
 /*	background: pink;*/
     margin-top: 20px;
