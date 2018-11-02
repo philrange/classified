@@ -93,13 +93,37 @@ header {
 	
 }
 
-.infotech {
-	float: right;
+.intelcom {
+/*	float: left;*/
 }
 
 .icon {
-	float: right;
-	margin-right : 6px;
+/*	float: left;*/
+    display: inline-block;
+	margin-left : 4px;
+    margin-top: 4px;
+    
+    height: 16px;
+    width: 16px;
+    
+    background-size: cover;
+    background-position: center;
+}
+
+.cross {
+    background-image: url("../images/cross.png");
+}
+
+.gear {
+    background-image: url("../images/gear.png");
+}
+
+.globe {
+    background-image: url("../images/globe.png");
+}
+
+.sights {
+    background-image: url("../images/sights.png");
 }
 
 #cards-container, #cards-container-hc {

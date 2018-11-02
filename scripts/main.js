@@ -247,11 +247,9 @@ function show2cards(card1, card2) {
 function getCardDiv(cardId) {
 
     var card = remainingCardsInDeck[cardId];
-    var intelcom = '<span class="infotech">' + card.intelcom + '</span>';
-//    var intelcom = '';
-//    var icons = getIconHtml(card.icons);
-    var icons = '';
-    var html = '<div class="card"><h5 class="card-header">' + card.objective + intelcom + icons + '</h5><div class="card-body"><h6 class="card-subtitle mb-2 text-muted">REQUIREMENTS: ' + card.requirements + '</h6><p class="card-text">' + card.text + '</p></div><div class="card-footer"><button type="button" class="btn btn-primary" onclick="selectCard(' + cardId + ', false)">Select this card</button></div></div>';
+    var intelcom = '<span class="intelcom">' + card.intelcom + '</span>';
+    var icons = getIconHtml(card.icons);
+    var html = '<div class="card"><h5 class="card-header">' + card.objective + '</h5><div class="card-body"><div class="card-subtitle mb-2 text-muted"><h5>INTELCOM: ' + intelcom + icons + '</h5><h6>REQUIREMENTS: ' + card.requirements + '</h6></div><p class="card-text">' + card.text + '</p></div><div class="card-footer"><button type="button" class="btn btn-primary" onclick="selectCard(' + cardId + ', false)">Select this card</button></div></div>';
 
     return html;
 }
@@ -259,11 +257,9 @@ function getCardDiv(cardId) {
 function getCardDivWithoutSelectButton(cardId) {
 
     var card = remainingCardsInDeck[cardId];
-        var intelcom = '<span class="infotech">' + card.intelcom + '</span>';
-//    var intelcom = '';
-    //    var icons = getIconHtml(card.icons);
-    var icons = '';
-    var html = '<div class="card mb-3"><h5 class="card-header">' + card.objective + intelcom + icons + '</h5><div class="card-body"><h6 class="card-subtitle mb-2 text-muted">REQUIREMENTS: ' + card.requirements + '</h6><p class="card-text">' + card.text + '</p></div></div>';
+    var intelcom = '<span class="intelcom">' + card.intelcom + '</span>';
+    var icons = getIconHtml(card.icons);
+    var html = '<div class="card mb-3"><h5 class="card-header">' + card.objective + '</h5><div class="card-body"><h5 class="card-subtitle mb-2 text-muted">INTELCOM: ' + intelcom + icons + '</h5><h6 class="card-subtitle mb-2 text-muted">REQUIREMENTS: ' + card.requirements + '</h6><p class="card-text">' + card.text + '</p></div></div>';
 
     return html;
 }
@@ -280,7 +276,7 @@ function getIconHtml(icons) {
 var html = '';
 if (icons != null) {
 	icons.forEach(icon => {
-	html += '<span class="icon">' + icon + '</span>'
+	html += '<span class="icon ' + icon + '"></span>'
 	});
 }
 
@@ -324,7 +320,8 @@ function selectCard(cardId, communal) {
         goToDiceRollOrRandom();
     } else {
     	 $('#timestamp-container').show();
-    	 $('#timestamp').append("Objectives selected at " + timestamp());
+    	 $('#timestamp').empty();
+         $('#timestamp').append("Objectives selected at " + timestamp());
     }
 }
 
